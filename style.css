@@ -83,3 +83,28 @@ button:hover {
     padding: 15px;
     margin-top: 30px;
 }
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #5c3a21;
+    box-shadow: 0 0 5px rgba(92, 58, 33, 0.3);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#message {
+    font-weight: bold;
+    margin-top: 10px;
+}
