@@ -8,37 +8,60 @@
 </head>
 <body>
 
-    <div id="header">
+    <header>
         <h1>Майстерня "Wooden Craft"</h1>
-        <div id="menu">
+        <nav>
             <a href="#">Головна</a>
             <a href="#">Наші вироби</a>
             <a href="#">Контакти</a>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <div id="content">
-        <h2>Створення індивідуальних кавових станцій</h2>
-        <p>Ми виготовляємо <b>найкращі</b> дерев'яні кавові станції ручної роботи для вашого дому чи офісу, які ідеально доповнять будь-який інтер'єр.</p>
-        
-        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-
-        <h3>Залишити заявку на прорахунок:</h3>
-        
-        <form id="orderForm">
-            <label>Ваше ім'я:</label><br>
-            <input type="text" id="customerName"><br><br>
+    <main>
+        <section>
+            <h2>Створення індивідуальних кавових станцій</h2>
+            <p>Ми виготовляємо <strong>найкращі</strong> дерев'яні кавові станції ручної роботи для вашого дому чи офісу, які ідеально доповнять будь-який інтер'єр.</p>
             
-            <label>Ваш Email:</label><br>
-            <input type="text" id="customerEmail"><br><br>
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf" alt="Дерев'яна кавова станція ручної роботи">
+
+            <h3>Залишити заявку на прорахунок:</h3>
             
-            <button type="button" id="submitBtn">Відправити заявку</button>
-        </form>
-    </div>
+            <form id="orderForm">
+                <label for="customerName">Ваше ім'я:</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Введіть ваше ім'я">
+                
+                <label for="customerEmail">Ваш Email:</label>
+                <input type="email" id="customerEmail" name="customerEmail" placeholder="example@mail.com">
+                
+                <button type="submit" id="submitBtn">Відправити заявку</button>
+            </form>
+            <p id="message"></p>
+        </section>
+    </main>
 
-    <div id="footer">
-        Усі права захищено. 2026 рік.
-    </div>
+    <footer>
+        <p>&copy; 2026 Майстерня "Wooden Craft". Усі права захищено.</p>
+    </footer>
 
+    <script>
+        const form = document.getElementById('orderForm');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Зупиняємо відправку форми
+            
+            const name = document.getElementById('customerName').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+
+            if (name === "" || email === "") {
+                message.textContent = "Будь ласка, заповніть усі поля!";
+                message.style.color = "red";
+            } else {
+                message.textContent = "Дякуємо! Ваша заявка відправлена.";
+                message.style.color = "green";
+                form.reset();
+            }
+        });
+    </script>
 </body>
 </html>
